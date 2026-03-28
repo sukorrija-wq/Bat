@@ -1,94 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Night Bat Scene</title>
+<title>Bat Test</title>
 
 <style>
-  body {
-    margin: 0;
-    overflow: hidden;
-    background: linear-gradient(#020617, #000000);
-  }
+body {
+  margin: 0;
+  background: black;
+}
 
-  .moon {
-    position: absolute;
-    top: 60px;
-    right: 100px;
-    width: 80px;
-    height: 80px;
-    background: #facc15;
-    border-radius: 50%;
-    box-shadow: 0 0 30px #facc15;
-  }
+.bat {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  top: 100px;
+  left: 0;
+  animation: gerak 5s linear infinite;
+}
 
-  .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    animation: twinkle 2s infinite alternate;
-  }
+@keyframes gerak {
+  from { left: 0; }
+  to { left: 100vw; }
+}
+</style>
 
-  @keyframes twinkle {
-    from { opacity: 0.2; }
-    to { opacity: 1; }
-  }
+</head>
 
-  .cloud {
-    position: absolute;
-    width: 120px;
-    height: 40px;
-    background: #1e293b;
-    border-radius: 50px;
-    opacity: 0.5;
-    animation: cloudMove 20s linear infinite;
-  }
+<body>
 
-  @keyframes cloudMove {
-    from { transform: translateX(-200px); }
-    to { transform: translateX(120vw); }
-  }
+<div class="bat"></div>
 
-  .bat {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    transform: scale(5);
-    animation: flap 0.4s steps(1) infinite, fly 8s linear infinite;
-  }
-
-  @keyframes fly {
-    0% { left: -50px; top: 100px; }
-    50% { top: 150px; }
-    100% { left: 110vw; top: 100px; }
-  }
-
-  @keyframes flap {
-    0% {
-      box-shadow:
-      0 1px #000,
-      1px 0 #000, 2px 0 #000, 3px 1px #000,
-      1px 2px #000, 2px 2px #000,
-      -1px 0 #000, -2px 0 #000, -3px 1px #000,
-      -1px 2px #000, -2px 2px #000;
-    }
-
-    50% {
-      box-shadow:
-      0 1px #000,
-      1px -1px #000, 2px -2px #000, 3px -1px #000,
-      1px 1px #000, 2px 1px #000,
-      -1px -1px #000, -2px -2px #000, -3px -1px #000,
-      -1px 1px #000, -2px 1px #000;
-    }
-
-    100% {
-      box-shadow:
-      0 1px #000,
-      1px 0 #000, 2px 0 #000, 3px 1px #000,
-      1px 2px #000, 2px 2px #000,
-      -1px 0 #000, -2px 0 #000, -3px 1px #000,
-      -1px 2px #000, -2px 2px #000;
-    }
-  }
+</body>
+</html>
