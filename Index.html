@@ -11,7 +11,6 @@
     background: linear-gradient(#020617, #000000);
   }
 
-  /* 🌙 BULAN */
   .moon {
     position: absolute;
     top: 60px;
@@ -23,7 +22,6 @@
     box-shadow: 0 0 30px #facc15;
   }
 
-  /* ✨ BINTANG */
   .star {
     position: absolute;
     width: 2px;
@@ -37,7 +35,6 @@
     to { opacity: 1; }
   }
 
-  /* ☁️ AWAN */
   .cloud {
     position: absolute;
     width: 120px;
@@ -53,7 +50,6 @@
     to { transform: translateX(120vw); }
   }
 
-  /* 🦇 BAT PIXEL */
   .bat {
     position: absolute;
     width: 1px;
@@ -62,22 +58,12 @@
     animation: flap 0.4s steps(1) infinite, fly 8s linear infinite;
   }
 
-  /* ✈️ GERAK TERBANG */
   @keyframes fly {
-    0% {
-      left: -50px;
-      top: 100px;
-    }
-    50% {
-      top: 150px;
-    }
-    100% {
-      left: 110vw;
-      top: 100px;
-    }
+    0% { left: -50px; top: 100px; }
+    50% { top: 150px; }
+    100% { left: 110vw; top: 100px; }
   }
 
-  /* 🦇 KEPak sayap */
   @keyframes flap {
     0% {
       box-shadow:
@@ -106,34 +92,3 @@
       -1px 2px #000, -2px 2px #000;
     }
   }
-</style>
-</head>
-
-<body>
-
-<!-- 🌙 BULAN -->
-<div class="moon"></div>
-
-<!-- ☁️ AWAN -->
-<div class="cloud" style="top:80px;"></div>
-<div class="cloud" style="top:200px; animation-delay:5s;"></div>
-
-<!-- ✨ BINTANG RANDOM -->
-<script>
-  for (let i = 0; i < 50; i++) {
-    let star = document.createElement("div");
-    star.className = "star";
-    star.style.top = Math.random() * window.innerHeight + "px";
-    star.style.left = Math.random() * window.innerWidth + "px";
-    star.style.animationDuration = (Math.random() * 2 + 1) + "s";
-    document.body.appendChild(star);
-  }
-</script>
-
-<!-- 🦇 BAT -->
-<div class="bat"></div>
-<div class="bat" style="animation-delay:2s; top:200px;"></div>
-<div class="bat" style="animation-delay:4s; top:50px;"></div>
-
-</body>
-</html>
