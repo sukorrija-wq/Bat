@@ -2,89 +2,63 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Real Bat Upgrade</title>
+<title>Pixel Bat</title>
 
 <style>
 body {
   margin: 0;
-  background: linear-gradient(#020617, #000);
+  background: black;
   overflow: hidden;
 }
 
-/* 🌙 Bulan */
-.moon {
-  position: absolute;
-  top: 50px;
-  right: 50px;
-  width: 80px;
-  height: 80px;
-  background: #facc15;
-  border-radius: 50%;
-  box-shadow: 0 0 30px #facc15;
-}
-
-/* 🦇 Bat */
+/* 🦇 BAT PIXEL */
 .bat {
+  width: 1px;
+  height: 1px;
   position: absolute;
-  top: 120px;
-  left: -100px;
-  animation: fly 8s linear infinite;
+  top: 150px;
+  left: 0;
+  transform: scale(6);
+
+  animation: fly 6s linear infinite, bat 0.4s steps(1) infinite;
 }
 
-/* badan */
-.body {
-  width: 20px;
-  height: 12px;
-  background: black;
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
-}
-
-/* sayap umum */
-.wing {
-  position: absolute;
-  width: 50px;
-  height: 25px;
-  background: black;
-  top: -8px;
-}
-
-/* bentuk sayap kiri */
-.wing.left {
-  left: -45px;
-  clip-path: polygon(100% 50%, 0% 0%, 20% 100%);
-  transform-origin: right center;
-  animation: flapL 0.35s ease-in-out infinite;
-}
-
-/* bentuk sayap kanan */
-.wing.right {
-  right: -45px;
-  clip-path: polygon(0% 50%, 100% 0%, 80% 100%);
-  transform-origin: left center;
-  animation: flapR 0.35s ease-in-out infinite;
-}
-
-/* kepak kiri */
-@keyframes flapL {
-  0%   { transform: rotate(25deg); }
-  50%  { transform: rotate(-50deg); }
-  100% { transform: rotate(25deg); }
-}
-
-/* kepak kanan (opposite) */
-@keyframes flapR {
-  0%   { transform: rotate(-25deg); }
-  50%  { transform: rotate(50deg); }
-  100% { transform: rotate(-25deg); }
-}
-
-/* terbang */
+/* ✈️ TERBANG */
 @keyframes fly {
-  0% { left: -100px; top: 120px; }
-  50% { top: 180px; }
-  100% { left: 110vw; top: 120px; }
+  from { left: -50px; }
+  to { left: 110vw; }
+}
+
+/* 🦇 FRAME PIXEL */
+@keyframes bat {
+
+  /* FRAME 1 */
+  0% {
+    box-shadow:
+      0 0 #000,
+      1px 0 #000, 2px 0 #000,
+      -1px 0 #000, -2px 0 #000,
+      0 1px #000,
+      1px 1px #000, -1px 1px #000;
+  }
+
+  /* FRAME 2 (kepak atas) */
+  50% {
+    box-shadow:
+      0 0 #000,
+      1px -1px #000, 2px -2px #000,
+      -1px -1px #000, -2px -2px #000,
+      0 1px #000;
+  }
+
+  /* FRAME 3 (kepak bawah) */
+  100% {
+    box-shadow:
+      0 0 #000,
+      1px 1px #000, 2px 2px #000,
+      -1px 1px #000, -2px 2px #000,
+      0 1px #000;
+  }
 }
 
 </style>
@@ -92,28 +66,9 @@ body {
 
 <body>
 
-<div class="moon"></div>
-
-<!-- 🦇 Bat 1 -->
-<div class="bat">
-  <div class="wing left"></div>
-  <div class="body"></div>
-  <div class="wing right"></div>
-</div>
-
-<!-- 🦇 Bat 2 -->
-<div class="bat" style="animation-delay:2s; top:220px;">
-  <div class="wing left"></div>
-  <div class="body"></div>
-  <div class="wing right"></div>
-</div>
-
-<!-- 🦇 Bat 3 -->
-<div class="bat" style="animation-delay:4s; top:80px;">
-  <div class="wing left"></div>
-  <div class="body"></div>
-  <div class="wing right"></div>
-</div>
+<div class="bat"></div>
+<div class="bat" style="top:220px; animation-delay:2s;"></div>
+<div class="bat" style="top:80px; animation-delay:4s;"></div>
 
 </body>
 </html>
