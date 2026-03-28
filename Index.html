@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Night Bat Scene</title>
+
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(#020617, #000000);
+  }
+
+  /* 🌙 BULAN */
+  .moon {
+    position: absolute;
+    top: 60px;
+    right: 100px;
+    width: 80px;
+    height: 80px;
+    background: #facc15;
+    border-radius: 50%;
+    box-shadow: 0 0 30px #facc15;
+  }
+
+  /* ✨ BINTANG */
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    animation: twinkle 2s infinite alternate;
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+  }
+
+  /* ☁️ AWAN */
+  .cloud {
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    background: #1e293b;
+    border-radius: 50px;
+    opacity: 0.5;
+    animation: cloudMove 20s linear infinite;
+  }
+
+  @keyframes cloudMove {
+    from { transform: translateX(-200px); }
+    to { transform: translateX(120vw); }
+  }
+
+  /* 🦇 BAT PIXEL */
+  .bat {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    transform: scale(5);
+    animation: flap 0.4s steps(1) infinite, fly 8s linear infinite;
+  }
+
+  /* ✈️ GERAK TERBANG */
+  @keyframes fly {
+    0% {
+      left: -50px;
+      top: 100px;
+    }
+    50% {
+      top: 150px;
+    }
+    100% {
+      left: 110vw;
+      top: 100px;
+    }
+  }
+
+  /* 🦇 KEPak sayap */
+  @keyframes flap {
+    0% {
+      box-shadow:
+      0 1px #000,
+      1px 0 #000, 2px 0 #000, 3px 1px #000,
+      1px 2px #000, 2px 2px #000,
+      -1px 0 #000, -2px 0 #000, -3px 1px #000,
+      -1px 2px #000, -2px 2px #000;
+    }
+
+    50% {
+      box-shadow:
+      0 1px #000,
+      1px -1px #000, 2px -2px #000, 3px -1px #000,
+      1px 1px #000, 2px 1px #000,
+      -1px -1px #000, -2px -2px #000, -3px -1px #000,
+      -1px 1px #000, -2px 1px #000;
+    }
+
+    100% {
+      box-shadow:
+      0 1px #000,
+      1px 0 #000, 2px 0 #000, 3px 1px #000,
+      1px 2px #000, 2px 2px #000,
+      -1px 0 #000, -2px 0 #000, -3px 1px #000,
+      -1px 2px #000, -2px 2px #000;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- 🌙 BULAN -->
+<div class="moon"></div>
+
+<!-- ☁️ AWAN -->
+<div class="cloud" style="top:80px;"></div>
+<div class="cloud" style="top:200px; animation-delay:5s;"></div>
+
+<!-- ✨ BINTANG RANDOM -->
+<script>
+  for (let i = 0; i < 50; i++) {
+    let star = document.createElement("div");
+    star.className = "star";
+    star.style.top = Math.random() * window.innerHeight + "px";
+    star.style.left = Math.random() * window.innerWidth + "px";
+    star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+    document.body.appendChild(star);
+  }
+</script>
+
+<!-- 🦇 BAT -->
+<div class="bat"></div>
+<div class="bat" style="animation-delay:2s; top:200px;"></div>
+<div class="bat" style="animation-delay:4s; top:50px;"></div>
+
+</body>
+</html>
