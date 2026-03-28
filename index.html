@@ -2,35 +2,108 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bat Test</title>
+<title>Real Bat Flap</title>
 
 <style>
 body {
   margin: 0;
-  background: black;
+  background: linear-gradient(#020617, #000);
+  overflow: hidden;
 }
 
+/* 🌙 Bulan */
+.moon {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 80px;
+  height: 80px;
+  background: #facc15;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #facc15;
+}
+
+/* 🦇 Bat */
 .bat {
   position: absolute;
-  width: 20px;
+  top: 120px;
+  left: -80px;
+  animation: fly 6s linear infinite;
+}
+
+/* badan */
+.body {
+  width: 30px;
+  height: 15px;
+  background: black;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+/* sayap */
+.wing {
+  position: absolute;
+  width: 40px;
   height: 20px;
-  background: white;
-  top: 100px;
-  left: 0;
-  animation: gerak 5s linear infinite;
+  background: black;
+  border-radius: 50%;
+  top: -5px;
+  transform-origin: right center;
+  animation: flap 0.3s ease-in-out infinite;
 }
 
-@keyframes gerak {
-  from { left: 0; }
-  to { left: 100vw; }
+.wing.left {
+  left: -35px;
+  transform-origin: right center;
 }
+
+.wing.right {
+  right: -35px;
+  transform-origin: left center;
+}
+
+/* kepak sayap */
+@keyframes flap {
+  0%   { transform: rotate(20deg); }
+  50%  { transform: rotate(-40deg); }
+  100% { transform: rotate(20deg); }
+}
+
+/* gerak terbang */
+@keyframes fly {
+  0% { left: -80px; top: 120px; }
+  50% { top: 160px; }
+  100% { left: 110vw; top: 120px; }
+}
+
 </style>
-
 </head>
 
 <body>
 
-<div class="bat"></div>
+<div class="moon"></div>
+
+<!-- 🦇 Bat 1 -->
+<div class="bat">
+  <div class="wing left"></div>
+  <div class="body"></div>
+  <div class="wing right"></div>
+</div>
+
+<!-- 🦇 Bat 2 -->
+<div class="bat" style="animation-delay:2s; top:200px;">
+  <div class="wing left"></div>
+  <div class="body"></div>
+  <div class="wing right"></div>
+</div>
+
+<!-- 🦇 Bat 3 -->
+<div class="bat" style="animation-delay:4s; top:80px;">
+  <div class="wing left"></div>
+  <div class="body"></div>
+  <div class="wing right"></div>
+</div>
 
 </body>
 </html>
